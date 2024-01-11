@@ -32,4 +32,3 @@ Guida directory:
 <a href="https://github.com/unipr-org/CN/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=unipr-org/CN" />
 </a>
-Made with [contrib.rocks](https://contrib.rocks).
