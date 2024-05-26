@@ -1,33 +1,42 @@
-function [x, fx, n] = bisection(f, a, b, tol, maxiter)
-    % f: la funzione da trovare lo zero
-    % a, b: gli estremi dell'intervallo di ricerca
-    % tol: la tolleranza dell'errore
-    % maxiter: il numero massimo di iterazioni
-    
-    if f(a) * f(b) >= 0
-        error('L''intervallo non soddisfa le condizioni di esistenza dello zero.')
-    end
-    
-    n = 0;
-    
-    % criterio di arresto: numero di iterazioni
-    while n < maxiter
-        
-        x = (a + b) / 2;
-        fx = f(x);
-        
-        % criterio di arresto: residuo
-        if abs(fx) < tol 
-            return
-        
-        if f(a) * fx < 0
-            b = x;
-        else
-            a = x;
-        end
+%% BISECTION Find roots of a function in a range
+% bisection(f,a,b,tol) finds the root of f given as function
+% handle in the range a to b with tol referring to the
+% tolerance accepted.
+%
+% Inputs
+%   f   The function given as function handle
+%   a   Beginning of the range
+%   b   End of the range
+%   tol Tolerance
+%
+% Outputs
+%   x   Midpoint
+%
+% Examples
+%   f = @(x) sin(x);
+%   [x] = bisection(f, 3, 4, 10^-10);
+function [x] = bisection(f, a, b, tol)
 
-        n = n + 1;
-    end
+    % First midpoint
+    x = (a + b) * 0.5; % (a-b)/2
     
-    warning('Raggiunto il numero massimo di iterazioni.')
+    % If first midpoint is root
+    if f(x) == 0
+        return
+    end
+
+    % Check zero existence in specified interval
+    if sign(f(a)) == sign(f(b)) % f(a) * f(b) > 0
+        error('Interval does not satisfy the conditions.')
+    end
+
+    % Resiual criteria
+    if abs(b - a) < tol
+        return
+    elseif sign(f(a)) == sign(f(x)) % Right side
+        x = bisection(f, x, b, tol);
+    elseif sign(f(b)) == sign(f(x)) % Left side
+        x = bisection(f, a, x, tol);
+    end
+
 end
