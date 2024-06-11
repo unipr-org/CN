@@ -1,10 +1,11 @@
 function [q] = trapezio_composita(f, a, b, m)
     x = linspace(a, b, m + 1);
-    imm_f = f(x);
+    %imm_f = f(x);
     
     H = (b - a) / m;
     
-    q = imm_f(1) + 2 * sum(imm_f(2 : m)) + imm_f(m + 1);
+    %q = imm_f(1) + 2 * sum(imm_f(2 : m)) + imm_f(m + 1);
+    q = f(x(1)) + 2 * sum(f(x(2:m))) + f(x(m + 1));
     
     q = q * H / 2;
 
