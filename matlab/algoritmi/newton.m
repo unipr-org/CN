@@ -1,27 +1,50 @@
-function [approx, num_iter] = newton(fun, dfun, x0, toll, max_iter)
-    % fun: la funzione da trovare lo zero
-    % dfun: la derivata della funzione f
-    % x0: il punto di partenza dell'iterazione
-    % toll: la tolleranza dell'errore
-    % max_iter: il numero massimo di iterazioni
-    
-    x = x0;
-    approx = [x];
-    num_iter = 0;
-    crit_arr = 1;
-    
-    % criterio di arresto: numero di iterazioni + residuo
-    while(num_iter < max_iter && crit_arr > toll)
-        num_iter = num_iter + 1;
+%% NEWTON  Find roots of a function using Newton's method
+% newton (f, df, x0, tol, max_iter) finds a root of the function f using the
+% derivative of that function and a starting point x0. tol is the accepted
+% tolerance and max_iter the maximum number of iterations allowed.
+%
+% Examples:
+%       f = @(x) sin(x);
+%       df = @(x) cos(x);
+%       x = 3;
+%       % Finds a root of f using 3 as starting point
+%       [v, y, num_iter] = newton(f, df, x, 10^-5, 100);
+%
+% See also BISECTION, BISECTION1, SECANT
+function [v, y, iter] = newton(f, df, x0, tol, max_iter)
+    % Number of iterations
+    iter = 0;
 
-        x_next = x - (fun(x) / dfun(x));
+    % Preallocate for speed
+    v = zeros(1,max_iter);
+    y = zeros(1,max_iter);
+    
+    % Check number of iterations
+    while iter < max_iter
+        iter = iter + 1;
+
+        % Intersection with x-axis
+        x = x0 - (f(x0) / df(x0));
         
-        approx = [approx; x_next];
-        
-        %crit_arr = abs(x_next - x); % criterio incremento
-        crit_arr = abs(fun(x_next)); % criterio residuo
-        
-        x = x_next;
+        v(iter) = x;
+        y(iter) = abs(f(x));
+
+        %criteria = abs(x - x0); % Increment
+        %criteria = abs(f(x)); % Residual
+
+        % Tolerance check
+        if abs(f(x)) < tol
+            v = v(1:iter)';
+            y = y(1:iter)';
+            return
+        end
+
+        x0 = x;
     end
+    
+    % Truncate to maximum number of iterations
+    warning('Maximum number of iterations reached.')
+    v = v(1:max_iter)';
+    y = y(1:max_iter)';
 end
     
