@@ -3,10 +3,13 @@ Corso _"Calcolo Numerico"_ presso l'Università degli Studi di Parma (6 CFU).
 ```
 Guida directory:
 .
+├── README.md
 ├── esami
 ├── matlab
-│	├── algoritmi
-│ 	└── laboratorio
+│   ├── README.md
+│   ├── algoritmi
+│   ├── laboratorio
+│   └── live
 └── teoria
 ```
 
