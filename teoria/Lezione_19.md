@@ -1,3 +1,5 @@
+## Metodo dei minimi quadrati
+
 Siamo interessati a cercare un polinomio di grado arbitrario che si discosti il meno possibile da un certo insieme di punti $(x_i, y_i)$ con $i =0,\ldots,n$.
 
 Per semplificare la spiegazione, introdurremo l'argomento limitandoci alle rette (ovvero i polinomi di primo grado).
