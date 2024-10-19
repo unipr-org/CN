@@ -31,9 +31,10 @@ Dove $P_1$ non è altro che l'insieme dei polinomi di primo grado.
 >    Infatti, elevando un numero alla seconda, geometricamente è come se stessimo calcolando l'area del quadrato avente come lato proprio questo valore e, al raddoppiare della lunghezza di un lato, non corrisponde un raddoppio dell'area del quadrato, bensì un **quadruplico**!
 >    Questo ci permette di assegnare un peso crescente agli errori più grandi, rendendo il metodo dei minimi quadrati particolarmente sensibile alle deviazioni più significative:
 >    
->    ![[images/quadrati.svg]]
+>    ![quadrati](images/quadrati.svg)
+>
 > 
-> 3) Tra poco vedremo che sarà necessario calcolare delle derivate e, da un punto di vista meramente algebrico, risulta molto facile determinare la derivata di una potenza, tramite la nota formula:
+> 4) Tra poco vedremo che sarà necessario calcolare delle derivate e, da un punto di vista meramente algebrico, risulta molto facile determinare la derivata di una potenza, tramite la nota formula:
 > $$
 > \frac{d}{dx} f(x)^\alpha = \alpha f(x)^{\alpha-1} f'(x)
 > $$
@@ -49,7 +50,7 @@ $$\sum_{i=0}^{n} (y_i^2 - 2mx_iy_i - 2y_iq + m^2x_i^2 + 2mx_iq + q^2) = \Phi(m,q
 $\Phi(m,q)$ di fatto non è altro che una particolare funzione detta *paraboloide* di grado 2 con incognite $m$ e $q$.
 Graficamente ce la si può immaginare come una parabola in 3 dimensioni, rivolta verso l'alto:
 
-![[paraboloide.svg]]
+![paraboloide](images/paraboloide.svg)
 
 Di questa funzione siamo interessati a trovare il punto di minimo (che è unico), in quanto quella sarà la combinazione ottimale di $m$ e $q$ tale da avere l'errore, tra i dati e la retta, più basso possibile e approssimare al meglio i dati.
 
