@@ -49,7 +49,7 @@ $$\sum_{i=0}^{n} (y_i^2 - 2mx_iy_i - 2y_iq + m^2x_i^2 + 2mx_iq + q^2) = \Phi(m,q
 $\Phi(m,q)$ di fatto non è altro che una particolare funzione detta *paraboloide* di grado 2 con incognite $m$ e $q$.
 Graficamente ce la si può immaginare come una parabola in 3 dimensioni, rivolta verso l'alto:
 
-![[images/paraboloide.svg]]
+![[paraboloide.svg]]
 
 Di questa funzione siamo interessati a trovare il punto di minimo (che è unico), in quanto quella sarà la combinazione ottimale di $m$ e $q$ tale da avere l'errore, tra i dati e la retta, più basso possibile e approssimare al meglio i dati.
 
