@@ -134,3 +134,15 @@ m = \frac{\displaystyle(n+1) \displaystyle \sum{\left(x_i y_i\right)} - \display
 \end{cases}$$
 La retta che ha $m$ come coefficiente angolare e $q$ come termine noto prende il nome di "**Retta di regressione lineare**", esplicitamente è:
 $$y = \frac{\displaystyle(n+1) \displaystyle \sum{\left(x_i y_i\right)} - \displaystyle \sum{x_i} \sum{y_i}}{ \displaystyle (n+1) \displaystyle \sum{x_i^2} - \left(\displaystyle \sum{x_i}\right)^2} \ x\ + \frac{\displaystyle \sum{x_i^2}\displaystyle \sum{y_i} -\displaystyle \sum{x_i}\sum{\left(x_i y_i\right)}}{\displaystyle(n+1) \displaystyle \sum{x_i^2} - \left(\displaystyle \sum{x_i}\right)^2}$$
+
+## MATLAB
+In Matlab, per determinare i coefficienti di un polinomio di grado *k* che approssima un set di punti $(x_i, y_i)$ con $i =0,\ldots,n$ è possibile usare la funzione `polyfit(x, y, k)`, in cui:
+- **`x`**: è il vettore contenente le ascisse dei punti dati,
+- **`y`**: è il vettore contenente le ordinate corrispondenti,
+- **`k`**: è il grado del polinomio con il quale approssimare i dati.
+
+Nel nostro caso, qualora fossimo interessati alla retta di regressione lineare, basterebbe impostare il paramatro *k* uguale a 1.
+
+La funzione `polyfit` restituisce un vettore riga di *k+1* elementi, contenente i coefficienti del polinomio approssimante nella forma:
+$$p(x) = p_1 x^k + p_2 x^{k-1} + \cdots + p_k x + p_{k+1}$$
+
