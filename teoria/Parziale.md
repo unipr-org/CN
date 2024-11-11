@@ -218,6 +218,7 @@ Il metodo delle corde converge se:
 #### Idea di base
 Il metodo di Newton cerca di trovare una radice $\alpha$ di una funzione utilizzando un'approssimazione basata sull'intersezione della retta tangente ad un punto iniziale con l'asse delle ascisse.
 Ripetendo questo processo iterativa, la stima diventa sempre più vicina alla radice effettiva:
+
 $$
 \begin{cases}
 x_0\ dato\\
@@ -228,32 +229,42 @@ $$
 #### Come si può ricavare in autonomia questa formula?
 
 L'equazione di una generica retta passante per un punto, dato $m$ è:
-$$y-y_k = m(x - x_k)
-$$
+
+$$y-y_k = m(x - x_k)$$
+
 Dove:
 - $m$ è il coefficiente angolare (la pendenza) della retta,
 - $x_k, y_k$ sono le coordinate di un punto $k$.
 
 Sostituiamo a $m$ la derivata prima di $f(x)$ valutata in $x_k$:
+
 $$y-y_k = f'(x_k)(x - x_k)$$
+
 Sostituiamo ora le coordinate del punto $k$:
+
 $$y-f(x_k) = f'(x_k)(x - x_k)$$
+
 Isoliamo $y$ al primo membro dell'equazione:
+
 $$y = f'(x_k)(x - x_k)+f(x_k)$$
+
 Ecco che abbiamo ottenuto l'equazione della **retta tangente** a $f(x)$ nel punto $\left(x_k, f(x_k)\right)$.
 
 Per generare la nuova stima $x_k+1$ dobbiamo sapere dove la retta $y$ interseca l'asse $x$, cioè dove $y = 0$:
+
 $$f'(x_k) (x - x_k) + f(x_k)=0$$
+
 Isoliamo $x$ nell'equazione:
-$$
-f'(x_k) (x - x_k) = -f(x_k)
-$$
+
+$$f'(x_k) (x - x_k) = -f(x_k)$$
+
 $$x - x_k = -\frac{f(x_k)}{f'(x_k)}$$
+
 $$x = x_k - \frac{f(x_k)}{f'(x_k)}$$
+
 Ecco che abbiamo trovato una nuova approssimazione $x_{k+1}$ partendo da $x_k$. Quindi, la **formula ricorsiva** del metodo di Newton diventa:
-$$
-x_{k+1} = x_k - \frac{f(x_k)}{f'(x_k)}
-$$
+
+$$x_{k+1} = x_k - \frac{f(x_k)}{f'(x_k)}$$
 
 ##### Osservazione
 
