@@ -217,7 +217,7 @@ Il metodo delle corde converge se:
 
 #### Idea di base
 Il metodo di Newton cerca di trovare una radice $\alpha$ di una funzione utilizzando un'approssimazione basata sull'intersezione della retta tangente ad un punto iniziale con l'asse delle ascisse.
-Ripetendo questo processo iterativa, la stima diventa sempre più vicina alla radice effettiva:
+Ripetendo questo processo iterativamente, la stima diventa sempre più vicina alla radice effettiva:
 
 $$
 \begin{cases}
@@ -226,7 +226,7 @@ x_{k+1} = x_k-\dfrac{f(x_k)}{f'(x_k)}\qquad\quad k=0, 1,\ \ldots;f'(x_k) \ne 0
 \end{cases}
 $$
 
-#### Come si può ricavare in autonomia questa formula?
+#### Come si può ricavare questa formula?
 
 L'equazione di una generica retta passante per un punto, dato $m$ è:
 
