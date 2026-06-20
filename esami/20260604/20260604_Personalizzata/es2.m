@@ -1,0 +1,24 @@
+clc
+clear
+close all
+
+a = -1;
+b = 1;
+f = @(x) 1 + exp(-x.^2);
+I1 = integral(f,a,b);%valore "esatto" utilizzando comando integral
+
+for m = 1:10
+    H = (b-a)/m;
+    x = linspace(a,b,m+1);
+    y = f(x);
+    I_trapz = trapz(x, y); %valore "esatto" utilizzando comando trapz
+    sommatoria = 0;
+    for i = 2:m
+        sommatoria = sommatoria + f(x(i));
+    end
+    I = (H/2)*(f(x(1))+2*sommatoria+f(x(m+1)));
+    err = abs(I - I1);
+    err_trapz = abs(I_trapz-I1);
+    fprintf(['Intervalli: %d | Valore(integral): %f | Errore(integral): %e |' ...
+        ' Valore(trapz): %f | Errore(trapz)%e\n '], m, I, err , I_trapz, err_trapz);
+end
