@@ -1,0 +1,10 @@
+clc
+clear
+close all
+
+n = 3;
+x = linspace(1,n,1)
+A = zeros(n)
+for i = 1:n^2
+    A()
+end
